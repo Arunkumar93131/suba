@@ -1,0 +1,528 @@
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--white:#fff;--gold:#ffe7a3;--pink:#ff8fca;--violet:#9b8cff;--bg:#060615}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
+button{font:inherit}
+#loader{position:fixed;inset:0;background:#050510;display:grid;place-items:center;z-index:99999;transition:opacity .8s}
+#loader p{margin-top:150px;letter-spacing:2px;font-size:13px;opacity:.8}
+.loader-ring{position:absolute;width:120px;height:120px;border:2px solid transparent;border-top-color:#fff;border-right-color:#ff9bd4;border-radius:50%;animation:spin 1.2s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.screen{min-height:100vh;display:grid;place-items:center;position:relative;overflow:hidden}
+#welcome{background:radial-gradient(circle at 50% 40%,#3d245c 0,#120c2b 35%,#050510 75%)}
+.aurora{position:absolute;inset:-20%;background:conic-gradient(from 90deg,transparent,#ff74c8,transparent,#8c7bff,transparent);filter:blur(80px);opacity:.22;animation:aurora 12s linear infinite}
+@keyframes aurora{to{transform:rotate(360deg)}}
+.glass{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:0 30px 100px rgba(0,0,0,.4)}
+.welcome-card{width:min(92%,620px);padding:65px 45px;text-align:center;border-radius:35px;position:relative;z-index:2;animation:cardIn 1.4s ease}
+@keyframes cardIn{from{opacity:0;transform:translateY(35px) scale(.95)}to{opacity:1;transform:none}}
+.mini-crown{font-size:42px;color:var(--gold);animation:pulse 2s infinite}
+.eyebrow{letter-spacing:5px;font-size:12px;font-weight:700;opacity:.75;margin-bottom:18px}
+.welcome-card h1 {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+}
+.welcome-card h1{font-size:76px}.welcome-card h1 span,.finale h3{color:var(--gold)}
+.lead{font-size:17px;line-height:1.9;opacity:.82;margin:20px auto 30px;max-width:500px}
+.welcome-card small{display:block;margin-top:18px;opacity:.55}
+.magic-btn{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:15px 28px;color:#17131f;background:linear-gradient(135deg,#fff,#ffe7a3);font-weight:700;cursor:pointer;box-shadow:0 0 25px rgba(255,231,163,.2);transition:.35s}
+.magic-btn:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 0 45px rgba(255,231,163,.55)}
+.magic-btn:active{transform:scale(.97)}
+#experience{min-height:100vh;background:radial-gradient(circle at 50% 0,#27154b 0,#0a0920 45%,#03030c 100%);position:relative}
+#fxCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1000}
+#ambient{position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(circle,#fff 1px,transparent 1.5px);background-size:95px 95px;opacity:.18;animation:stars 14s linear infinite}
+@keyframes stars{to{background-position:95px 190px}}
+#progress{position:fixed;top:0;left:0;right:0;height:3px;background:rgba(255,255,255,.08);z-index:2000}
+#progressBar{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff83c8,#ffe7a3,#9c8cff);box-shadow:0 0 15px #ff9bd4}
+#sceneLabel{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:1500;font-size:10px;letter-spacing:4px;opacity:.55;white-space:nowrap}
+.floating-btn{position:fixed;right:20px;top:20px;z-index:2001;width:48px;height:48px;border-radius:50%;border:1px solid #ffffff55;background:#ffffff18;color:#fff;backdrop-filter:blur(12px);cursor:pointer}
+.chapter{min-height:100vh;display:grid;place-items:center;padding:90px 20px;position:relative;z-index:5}
+.hero-chapter{text-align:center;background:radial-gradient(circle at center,rgba(255,125,202,.12),transparent 45%)}
+.hero-orb{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,#ff8fca55,transparent 65%);filter:blur(15px);animation:orb 5s ease-in-out infinite}
+@keyframes orb{50%{transform:scale(1.2);opacity:.55}}
+.hero-chapter h2{font-size:100px;position:relative}.hero-chapter h3{font-family:Cinzel,serif;font-size:46px;letter-spacing:10px;position:relative}.type-text{min-height:60px;max-width:680px;margin:25px auto;line-height:1.8;opacity:.8;position:relative}
+.chapter-inner,.wish-card,.letter{width:min(1100px,94%);padding:55px;border-radius:35px;text-align:center;position:relative}
+.chapter-number{font-size:70px;font-family:Cinzel;color:#ffffff20;position:absolute;right:35px;top:15px}
+.chapter h2{font-size:45px;margin-bottom:12px}.section-sub{opacity:.7;margin-bottom:35px}
+.gift-wrap{height:190px;display:grid;place-items:center;margin:10px}.gift-box,.gift-lid{font-size:100px;transition:.6s;position:relative}.gift-lid{transform:translateY(20px);z-index:2}.gift-wrap.open .gift-lid{transform:translateY(-120px) rotate(-15deg);opacity:0}.gift-wrap.open .gift-box{transform:scale(1.3) rotate(5deg)}
+.hidden-message{opacity:0;max-width:650px;margin:25px auto;line-height:1.8;transform:translateY(20px);transition:.8s}.gift-wrap.open + #giftBtn + .hidden-message{opacity:1;transform:none}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:35px 0}
+.gallery figure{overflow:hidden;border-radius:22px;background:#fff0;transition:.5s;transform:translateZ(0)}
+.gallery figure:hover{transform:translateY(-8px) rotate(1deg);box-shadow:0 20px 50px #0008}
+.gallery img{width:100%;height:280px;object-fit:cover;display:block;border:1px solid #fff2;transition:.7s}
+.gallery figure:hover img{transform:scale(1.08)}
+.gallery figcaption{padding:10px;font-size:11px;letter-spacing:2px;opacity:.6}
+.cake{font-size:130px;animation:cakeFloat 3s ease-in-out infinite;margin:15px}@keyframes cakeFloat{50%{transform:translateY(-12px) scale(1.04)}}
+.wish-result{min-height:28px;margin-top:20px;color:var(--gold);font-weight:600}
+.letter{max-width:800px;text-align:left;line-height:2;font-size:17px}.letter h2{text-align:center;font-family:"Great Vibes";font-size:60px;font-weight:400}.letter .eyebrow{text-align:center}.letter p{margin:20px 0}.signature{text-align:right;color:var(--gold)}
+.finale{text-align:center;overflow:hidden;background:radial-gradient(circle,#45245f55,transparent 45%)}.finale h2{font-size:105px}.finale h3{font-family:Cinzel;font-size:50px;letter-spacing:12px}.finale>p:not(.eyebrow){max-width:600px;margin:25px auto 35px;opacity:.8}.giant{font-size:20px;padding:18px 38px}
+.final-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,#ff8fc955,transparent 68%);animation:pulse 4s infinite}
+@keyframes pulse{50%{transform:scale(1.1);opacity:.75}}
+.final-message{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:12px;background:#050510dd;backdrop-filter:blur(12px);z-index:10;animation:fadeIn 1s}.final-title{font-family:"Great Vibes";font-size:72px;color:var(--gold)}.final-name{font-family:Cinzel;font-size:52px;letter-spacing:12px}.final-message p{opacity:.8;margin-bottom:15px}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.particle{position:fixed;pointer-events:none;z-index:1200;will-change:transform,opacity}
+.heart-p{font-size:22px}.confetti-p{width:9px;height:15px;border-radius:2px}
+.firework-p{width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 10px currentColor}
+@media(max-width:850px){.gallery{grid-template-columns:repeat(2,1fr)}.hero-chapter h2,.finale h2{font-size:70px}.hero-chapter h3,.finale h3{font-size:32px;letter-spacing:6px}.chapter-inner,.wish-card,.letter{padding:35px 22px}}
+@media(max-width:520px){.welcome-card{padding:45px 22px}.welcome-card h1{font-size:55px}.lead{font-size:14px}.chapter{padding:80px 12px}.chapter h2{font-size:34px}.hero-chapter h2,.finale h2{font-size:58px}.hero-chapter h3,.finale h3{font-size:25px;letter-spacing:4px}.gallery{grid-template-columns:1fr 1fr;gap:10px}.gallery img{height:190px}.letter{font-size:14px}.letter h2{font-size:48px}.final-title{font-size:52px}.final-name{font-size:30px;letter-spacing:6px}#sceneLabel{font-size:8px;letter-spacing:2px;top:18px}.floating-btn{right:12px;top:45px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+/* =====================================================
+   SUBASHTI BIRTHDAY COUNTDOWN
+   ===================================================== */
+
+.countdown-screen {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.25), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(130, 80, 255, 0.30), transparent 30%),
+        linear-gradient(135deg, #050014, #160027, #090014);
+
+    transition: opacity 1.5s ease, visibility 1.5s ease;
+}
+
+
+/* Stars */
+
+.countdown-screen::before,
+.countdown-screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1px);
+
+    background-size: 90px 90px, 150px 150px;
+
+    animation: starsMove 20s linear infinite;
+
+    opacity: .5;
+}
+
+.countdown-screen::after {
+    animation-duration: 30s;
+    opacity: .25;
+}
+
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-90px);
+    }
+
+}
+
+
+/* Countdown Card */
+
+.countdown-card {
+
+    position: relative;
+
+    width: min(90%, 720px);
+
+    padding: 55px 35px;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    background: rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 0 40px rgba(255, 105, 180, .15),
+        0 0 100px rgba(140, 80, 255, .15);
+
+    animation: countdownCardIn 1.5s ease;
+
+    z-index: 5;
+}
+
+
+@keyframes countdownCardIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* Sparkle */
+
+.countdown-sparkle {
+
+    font-size: 45px;
+
+    color: #ffe58a;
+
+    animation: sparklePulse 2s ease-in-out infinite;
+}
+
+
+@keyframes sparklePulse {
+
+    0%,100% {
+        transform: scale(1);
+        opacity: .7;
+    }
+
+    50% {
+        transform: scale(1.4);
+        opacity: 1;
+    }
+
+}
+
+
+/* Small heading */
+
+.countdown-small {
+
+    margin-top: 10px;
+
+    font-family: "Times New Roman", Times, serif;
+
+    font-size: 14px;
+
+    letter-spacing: 7px;
+
+    color: rgba(255,255,255,.75);
+}
+
+
+/* Name */
+
+.countdown-card h1 {
+
+    margin: 15px 0 5px;
+
+    font-family: "Times New Roman", Times, serif;
+
+    font-size: clamp(55px, 10vw, 100px);
+
+    font-weight: bold;
+
+    font-style: italic;
+
+    letter-spacing: 8px;
+
+    color: #ffe58a;
+
+    text-shadow:
+        0 0 10px rgba(255,229,138,.6),
+        0 0 30px rgba(255,150,200,.4);
+
+    animation: nameGlow 3s ease-in-out infinite;
+}
+
+
+@keyframes nameGlow {
+
+    0%,100% {
+        text-shadow:
+            0 0 10px rgba(255,229,138,.5),
+            0 0 30px rgba(255,150,200,.3);
+    }
+
+    50% {
+        text-shadow:
+            0 0 20px rgba(255,229,138,.9),
+            0 0 50px rgba(255,100,180,.7);
+    }
+
+}
+
+
+/* Heart */
+
+.countdown-heart {
+
+    font-size: 35px;
+
+    animation: heartbeat 1.2s infinite;
+}
+
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.25);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.2);
+    }
+
+}
+
+
+/* Message */
+
+.countdown-message {
+
+    margin: 20px auto 10px;
+
+    font-family: "Times New Roman", Times, serif;
+
+    font-size: 20px;
+
+    color: rgba(255,255,255,.85);
+}
+
+
+/* Date */
+
+.birthday-date {
+
+    font-family: "Times New Roman", Times, serif;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #ffe58a;
+
+    margin-bottom: 30px;
+}
+
+
+/* Countdown Boxes */
+
+.countdown-boxes {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin: 25px 0;
+}
+
+
+.time-box {
+
+    min-width: 115px;
+
+    padding: 18px 12px;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,.10);
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+        inset 0 0 20px rgba(255,255,255,.03),
+        0 10px 30px rgba(0,0,0,.25);
+
+    transition: .3s;
+}
+
+
+.time-box:hover {
+
+    transform: translateY(-7px);
+
+    background: rgba(255,255,255,.15);
+
+    box-shadow:
+        0 0 25px rgba(255,180,220,.25);
+}
+
+
+.time-box span {
+
+    display: block;
+
+    font-family: "Times New Roman", Times, serif;
+
+    font-size: 42px;
+
+    font-weight: bold;
+
+    color: white;
+}
+
+
+.time-box small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-family: "Times New Roman", Times, serif;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: #ffe58a;
+}
+
+
+/* Locked message */
+
+#countdownLocked {
+
+    margin-top: 20px;
+
+    font-family: "Times New Roman", Times, serif;
+
+    font-size: 17px;
+
+    color: rgba(255,255,255,.8);
+}
+
+
+.countdown-note {
+
+    margin-top: 15px;
+
+    font-family: "Times New Roman", Times, serif;
+
+    font-size: 15px;
+
+    color: rgba(255,255,255,.55);
+}
+
+
+/* Hide countdown */
+
+.countdown-hidden {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   BIRTHDAY DAY UNLOCK
+   ===================================================== */
+
+.countdown-ready {
+
+    animation: birthdayUnlock 1s ease forwards;
+}
+
+
+@keyframes birthdayUnlock {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .countdown-card {
+
+        width: 88%;
+
+        padding: 40px 20px;
+
+        border-radius: 25px;
+    }
+
+    .countdown-small {
+
+        font-size: 10px;
+
+        letter-spacing: 4px;
+    }
+
+    .countdown-card h1 {
+
+        font-size: 52px;
+
+        letter-spacing: 4px;
+    }
+
+    .countdown-message {
+
+        font-size: 17px;
+    }
+
+    .birthday-date {
+
+        font-size: 20px;
+    }
+
+    .countdown-boxes {
+
+        gap: 8px;
+    }
+
+    .time-box {
+
+        min-width: 70px;
+
+        padding: 12px 7px;
+    }
+
+    .time-box span {
+
+        font-size: 28px;
+    }
+
+    .time-box small {
+
+        font-size: 9px;
+
+        letter-spacing: 1px;
+    }
+
+}

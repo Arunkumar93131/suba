@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070719">
+  <title>Happy Birthday SUBASHTI 🤍</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader">
+    <div class="loader-ring"></div>
+    <p>Creating something magical for SUBASHTI…</p>
+  </div>
+
+  <div id="ambient" aria-hidden="true"></div>
+  <canvas id="fxCanvas"></canvas>
+
+  <section id="welcome" class="screen active">
+    <div class="aurora"></div>
+    <div class="welcome-card glass">
+      <div class="mini-crown">✦</div>
+      <p class="eyebrow">A PRIVATE LITTLE SURPRISE FOR</p>
+      <h1><span>SUBASHTI</span></h1>
+      <p class="lead">A five-minute journey made with memories, music, stars and a whole lot of love.</p>
+      <button id="startBtn" class="magic-btn">Open My Surprise <span>✦</span></button>
+      <small>Turn your volume up 🔊</small>
+    </div>
+  </section>
+
+  <main id="experience" hidden>
+    <button id="musicBtn" class="floating-btn" aria-label="Toggle music">🔊</button>
+    <div id="progress"><span id="progressBar"></span></div>
+    <div id="sceneLabel">CHAPTER 1 · A SPECIAL DAY</div>
+
+    <section class="chapter hero-chapter" data-chapter="1">
+      <div class="hero-orb"></div>
+      <p class="eyebrow">TODAY IS YOUR DAY</p>
+      <h2>Happy Birthday</h2>
+      <h3>SUBASHTI <span>🤍</span></h3>
+      <p id="typeText" class="type-text"></p>
+      <button class="magic-btn next-btn">Begin the Magic ✨</button>
+    </section>
+
+    <section class="chapter" data-chapter="2">
+      <div class="chapter-inner glass">
+        <span class="chapter-number">02</span>
+        <p class="eyebrow">A LITTLE GIFT</p>
+        <h2>Something I Made For You 🎁</h2>
+        <p>Some surprises are better opened slowly.</p>
+        <div class="gift-wrap" id="gift">
+          <div class="gift-lid">🎀</div>
+          <div class="gift-box">🎁</div>
+        </div>
+        <button id="giftBtn" class="magic-btn">Open Your Gift</button>
+        <p id="giftMessage" class="hidden-message">May this year bring you beautiful beginnings, peaceful moments and every happiness you deserve. 🤍</p>
+      </div>
+    </section>
+
+    <section class="chapter" data-chapter="3">
+      <div class="chapter-inner">
+        <p class="eyebrow">MEMORIES</p>
+        <h2>13 Little Moments 📸</h2>
+        <p class="section-sub">Every picture is a tiny piece of a beautiful story.</p>
+        <div class="gallery" id="gallery">
+          <figure><img src="images/photo1.jpg" alt="Memory 1" loading="lazy"><figcaption>Memory 01</figcaption></figure>
+          <figure><img src="images/photo2.jpg" alt="Memory 2" loading="lazy"><figcaption>Memory 02</figcaption></figure>
+          <figure><img src="images/photo3.jpg" alt="Memory 3" loading="lazy"><figcaption>Memory 03</figcaption></figure>
+          <figure><img src="images/photo4.jpg" alt="Memory 4" loading="lazy"><figcaption>Memory 04</figcaption></figure>
+          <figure><img src="images/phot5.jpg" alt="Memory 5" loading="lazy"><figcaption>Memory 05</figcaption></figure>
+          <figure><img src="images/photo6.jpg" alt="Memory 6" loading="lazy"><figcaption>Memory 06</figcaption></figure>
+          <figure><img src="images/photo7.jpg" alt="Memory 7" loading="lazy"><figcaption>Memory 07</figcaption></figure>
+          <figure><img src="images/photo8.jpg" alt="Memory 8" loading="lazy"><figcaption>Memory 08</figcaption></figure>
+          <figure><img src="images/photo9.jpg" alt="Memory 9" loading="lazy"><figcaption>Memory 09</figcaption></figure>
+          <figure><img src="images/photo10.jpg" alt="Memory 10" loading="lazy"><figcaption>Memory 10</figcaption></figure>
+          <figure><img src="images/photo11.jpg" alt="Memory 11" loading="lazy"><figcaption>Memory 11</figcaption></figure>
+          <figure><img src="images/photo12.jpg" alt="Memory 12" loading="lazy"><figcaption>Memory 12</figcaption></figure>
+          <figure><img src="images/photo13.jpg" alt="Memory 13" loading="lazy"><figcaption>Memory 13</figcaption></figure>
+          <figure><img src="images/photo14.jpg" alt="Memory 14" loading="lazy"><figcaption>Memory 14</figcaption></figure>
+          <figure><img src ="images/photo15.jpg" alt="Memory 15" loading="lazy"><figcaption>Memory 15</figcaption></figure>
+          <figure><img src = "images/photo16.jpg" alt="Memory 16" loading="lazy"><figcaption>Memory 16</figcaption></figure>
+        </div>
+        <button class="magic-btn next-btn">Keep Going 🤍</button>
+      </div>
+    </section>
+
+    <section class="chapter wish-chapter" data-chapter="4">
+      <div class="wish-card glass">
+        <p class="eyebrow">CHAPTER 04</p>
+        <h2>Make A Wish ✨</h2>
+        <div class="cake">🎂</div>
+        <p>Close your eyes for a moment.<br>Think of one beautiful wish.</p>
+        <button id="wishBtn" class="magic-btn">Make My Wish 🌟</button>
+        <p id="wishResult" class="wish-result"></p>
+      </div>
+    </section>
+
+    <section class="chapter letter-chapter" data-chapter="5">
+      <div class="letter glass">
+        <p class="eyebrow">A LETTER FOR YOU</p>
+        <h2>Dear SUBASHTI 💌</h2>
+        <p>
+          You are one of those people who make ordinary days feel special.
+          Thank you for your kindness, your laughter, your support and all the
+          little moments that become unforgettable memories.
+        </p>
+        <p>
+          I hope this new chapter gives you courage for every dream, calm for
+          every difficult day, and countless reasons to smile.
+        </p>
+        <p class="signature">With lots of love,<br><b>Your Best Friend</b> 🤍</p>
+        <button class="magic-btn next-btn">One Last Surprise…</button>
+      </div>
+    </section>
+
+    <section class="chapter finale" data-chapter="6">
+      <div class="final-glow"></div>
+      <p class="eyebrow">THE GRAND FINALE</p>
+      <h2>Happy Birthday</h2>
+      <h3>SUBASHTI 🤍</h3>
+      <p>May your next chapter be brighter than every star in the sky.</p>
+      <button id="celebrateBtn" class="magic-btn giant">CELEBRATE 🎆</button>
+      <div id="finalMessage" class="final-message" hidden>
+        <div class="final-name">SUBASHTI</div>
+        <div class="final-title">HAPPY BIRTHDAY ✨</div>
+        <p>Stay happy. Stay kind. Keep shining. Keep dreaming. 🤍</p>
+        <button id="replayBtn" class="magic-btn">Replay the Magic ↻</button>
+      </div>
+    </section>
+  </main>
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="birthday.mp3.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+<!-- ================= COUNTDOWN SCREEN ================= -->
+<section id="countdownScreen" class="countdown-screen">
+
+    <div class="countdown-stars"></div>
+
+    <div class="countdown-card">
+
+        <div class="countdown-sparkle">✦</div>
+
+        <p class="countdown-small">
+            A SPECIAL DAY IS COMING
+        </p>
+
+        <h1>SUBASHTI</h1>
+
+        <div class="countdown-heart">❤️</div>
+
+        <p class="countdown-message">
+            Something beautiful is waiting for you...
+        </p>
+
+        <p class="birthday-date">
+            21 January 2027
+        </p>
+
+        <div class="countdown-boxes">
+
+            <div class="time-box">
+                <span id="days">00</span>
+                <small>DAYS</small>
+            </div>
+
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>HOURS</small>
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <small>MINUTES</small>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <small>SECONDS</small>
+            </div>
+
+        </div>
+
+        <div id="countdownLocked">
+            🔒 Surprise Locked
+        </div>
+
+        <p class="countdown-note">
+            Come back on her special day ❤️
+        </p>
+
+    </div>
+
+</section>
+</html>
